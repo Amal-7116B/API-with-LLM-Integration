@@ -13,3 +13,27 @@ The API exposes an endpoint `/generate` where users can send a prompt and receiv
 1. Start the FastAPI server:
    ```bash
    uvicorn main:app --reload
+
+2. Send a POST request to:
+
+```bash
+http://127.0.0.1:8000/generate?prompt=Hello
+
+with header
+x-api-key: YOUR_API_KEY
+
+Example using curl
+curl -X POST "http://127.0.0.1:8000/generate?prompt=Hello" \
+     -H "x-api-key: YOUR_API_KEY"
+
+Example using Python (requests)
+import requests
+
+url = "http://127.0.0.1:8000/generate?prompt=Hello"
+headers = {"x-api-key": "YOUR_API_KEY"}
+
+response = requests.post(url, headers=headers)
+print(response.json())
+
+
+
